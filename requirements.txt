@@ -1,0 +1,2 @@
+# Python packages for the Vercel function (api/index.py). The real list lives in backend/requirements.txt.
+-r backend/requirements.txt

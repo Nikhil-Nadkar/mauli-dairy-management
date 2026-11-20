@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+/*
+ * Built for people aged 50+, mostly on Android phones:
+ *  - large base text (and an even larger "Bigger text" option in My account)
+ *  - strong contrast, thick visible focus ring
+ *  - no animations when the phone asks for reduced motion
+ */
+
+:root {
+  --nav-height: 5.25rem; /* phone bottom menu */
+}
+@media (min-width: 768px) {
+  :root {
+    --nav-height: 0rem; /* desktop uses a sidebar instead */
+  }
+}
+
+html {
+  font-size: 20px;
+}
+html[data-text-size="large"] {
+  font-size: 23px;
+}
+
+body {
+  @apply bg-slate-100 text-slate-900 antialiased;
+  font-family: system-ui, "Segoe UI", Roboto, "Noto Sans", "Noto Sans Devanagari", sans-serif;
+  line-height: 1.45;
+}
+
+*:focus-visible {
+  outline: 4px solid #d97706;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
